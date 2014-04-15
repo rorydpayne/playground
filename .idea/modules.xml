@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DropwizardTest/DropwizardTest.iml" filepath="$PROJECT_DIR$/DropwizardTest/DropwizardTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Greeting/Greeting.iml" filepath="$PROJECT_DIR$/Greeting/Greeting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InterfaceAndInheritance/InterfaceAndInheritance.iml" filepath="$PROJECT_DIR$/InterfaceAndInheritance/InterfaceAndInheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mocking/Mocking.iml" filepath="$PROJECT_DIR$/Mocking/Mocking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ToDoList/ToDoList.iml" filepath="$PROJECT_DIR$/../ToDoList/ToDoList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UnitTesting/UnitTesting.iml" filepath="$PROJECT_DIR$/UnitTesting/UnitTesting.iml" />
+      <module fileurl="file://C:/play-2.2.2/samples/java/forms/forms.iml" filepath="C:/play-2.2.2/samples/java/forms/forms.iml" />
+      <module fileurl="file://C:/play-2.2.2/samples/java/ics-software-engineering-play-example-form-9108f4f/ics-software-engineering-play-example-form-9108f4f.iml" filepath="C:/play-2.2.2/samples/java/ics-software-engineering-play-example-form-9108f4f/ics-software-engineering-play-example-form-9108f4f.iml" />
+      <module fileurl="file://C:/play-2.2.2/samples/java/forms/target/scala-2.10/src_managed/src_managed.iml" filepath="C:/play-2.2.2/samples/java/forms/target/scala-2.10/src_managed/src_managed.iml" />
+      <module fileurl="file://C:/play-2.2.2/samples/java/ics-software-engineering-play-example-form-9108f4f/target/scala-2.10/src_managed/src_managed1.iml" filepath="C:/play-2.2.2/samples/java/ics-software-engineering-play-example-form-9108f4f/target/scala-2.10/src_managed/src_managed1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ToDoList/target/scala-2.10/src_managed/src_managed2.iml" filepath="$PROJECT_DIR$/../ToDoList/target/scala-2.10/src_managed/src_managed2.iml" />
+    </modules>
+  </component>
+</project>
+

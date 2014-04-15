@@ -1,0 +1,83 @@
+<!--BUILDING FAT JARS-->
+
+        <!--We recommend that you build your Dorpwizzard applications as "fat" JAR files - single .jar files which
+        contain all of the .class files required to run your application. This allows you to build a single deployable
+        artifact which you can promote from your staging environment to your QA environment to your production
+        environment without worrying about differences in installed libraries. To start building our Hello World
+        application as a fat JAR, we need to configure a Maven plugin called maven-shade. In the <build><plugins>
+        section of your pom.xml file, add...-->
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>DropwizardTest</groupId>
+    <artifactId>DropwizardTest</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <dropwizard.version>0.6.2</dropwizard.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.yammer.dropwizard</groupId>
+            <artifactId>dropwizard-core</artifactId>
+            <version>0.6.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>1.6</version>
+                <configuration>
+                    <createDependencyReducedPom>true</createDependencyReducedPom>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.example.helloworld.HelloWorldApplication</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+        <!-- This configures Maven to do a couple of things during its package phase
+
+                #produce a poom.xml file which doesn't include dependencies fgor the libraries whose contents are
+                included in the fat JAR
+
+                #Exclude all digital signatures from signed JARs. If you don't then Java considers the signature invalid
+                and won't load or run your JAR file.
+
+                #Collate the various META-INF/services entries in the JARs instead of overwriting them. Neither
+                Dropwizard nor Jersey works without those.)
+                -->
